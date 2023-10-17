@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="" style={waves}>
+    <div className="container mx-auto" style={waves}>
       <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
