@@ -6,6 +6,7 @@ import AddProducts from "../Add Products/AddProducts";
 import MyCart from "../My Cart/MyCart";
 import Signin from "../SignIn/Signin";
 import SignUp from "../SignUp/SignUp";
+import CategoriesDetail from "../Home/CategoriesDetail";
 
 const Routers = createBrowserRouter([
   {
@@ -16,6 +17,12 @@ const Routers = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("/public/data.json"),
+      },
+      {
+        path: "/categories/:id",
+        element: <CategoriesDetail></CategoriesDetail>,
+        loader: () => fetch("/public/data.json"),
       },
       {
         path: "/addProduct",
