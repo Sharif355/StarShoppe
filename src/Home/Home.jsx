@@ -16,7 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {loaderData?.map((data) => (
-          <Categories key={data.id} data={data}></Categories>
+          <Categories key={data._id} data={data}></Categories>
         ))}
       </div>
     </div>

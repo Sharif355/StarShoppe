@@ -10,6 +10,7 @@
                 "name": "Stranger Things",
                 "type": "Series",
                 "price": "$12.99/month",
+                "description": " Stranger Things is a    "  ,
                 "rating": "4.8",
                 "details_button": "Details",
                 "update_button": "Update"

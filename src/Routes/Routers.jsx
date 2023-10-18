@@ -7,6 +7,7 @@ import MyCart from "../My Cart/MyCart";
 import Signin from "../SignIn/Signin";
 import SignUp from "../SignUp/SignUp";
 import CategoriesDetail from "../Home/CategoriesDetail";
+import ProductsDetail from "../Home/ProductsDetail";
 
 const Routers = createBrowserRouter([
   {
@@ -17,12 +18,19 @@ const Routers = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/public/data.json"),
+        loader: () => fetch("http://localhost:5000/brands"),
       },
       {
-        path: "/categories/:id",
+        path: "/categories/:brand_name",
         element: <CategoriesDetail></CategoriesDetail>,
-        loader: () => fetch("/public/data.json"),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.brand_name}`),
+      },
+      {
+        path: "/categories/:brand_name/:id",
+        element: <ProductsDetail></ProductsDetail>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/addProduct",

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 const Categories = ({ data }) => {
-  const { id, brand_name, brand_image } = data;
+  const { brand_name, brand_image } = data;
 
   return (
     <div>
-      <Link to={`/categories/${id}`}>
+      <Link to={`/categories/${brand_name}`}>
         <img
           className="w-[300px] md:w-[500px] h-80 rounded-t-lg shadow-lg "
           src={brand_image}
