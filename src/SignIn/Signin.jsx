@@ -1,65 +1,120 @@
-import { Button, Card, Typography, Input } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
 
 const Signin = () => {
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.pass.value;
+    console.log(email, password);
+
+    signIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          icon: "success",
+          title: "Hurrah!",
+          text: "You are logged in Successfully",
+          confirmButtonText: "Ok",
+        });
+        navigate(location?.state ? location?.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops",
+          text: error.message,
+          confirmButtonText: "Ok",
+        });
+      });
+  };
+
+  const handleGoogle = () => {
+    googleSignIn()
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          icon: "success",
+          title: "Hurrah!",
+          text: "You are logged in Successfully",
+          confirmButtonText: "Ok",
+        });
+        navigate(location?.state ? location?.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="flex justify-center">
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Login
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Nice to meet you! Enter your details to register.
-        </Typography>
-        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-          <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Your Name
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Your Email
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Password
-            </Typography>
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-            />
+      <div className="hero min-h-screen ">
+        <div className="hero-content flex-col ">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Log in</h1>
+            <p className="py-6">
+              Nice to meet you! Enter your details to Login.
+            </p>
           </div>
-
-          <Button className="mt-6 btn" fullWidth>
-            Log in
-          </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
-            New Here ?
-            <Link to="/signUp" className="font-medium text-gray-900 ">
-              <button> Sign Up</button>
-            </Link>
-          </Typography>
-        </form>
-      </Card>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                  required
+                  name="email"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                  required
+                  name="pass"
+                />
+                <p className="pt-5">
+                  <a href="#"> Forget Password? </a>
+                </p>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
+            </form>
+            <p className="text-center pb-3">
+              New Here ?{" "}
+              <Link to="/signUp">
+                <button>Sign up</button>
+              </Link>{" "}
+            </p>
+            <div className="px-5 space-y-2 mb-3">
+              <hr className="border-black border-3 " />
+              <p className="text-center text-lg">or</p>
+              <button onClick={handleGoogle} className="btn w-full  ">
+                {" "}
+                <FcGoogle className="text-xl"></FcGoogle> Continue with Google
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

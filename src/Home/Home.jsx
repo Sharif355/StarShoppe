@@ -5,8 +5,6 @@ import Categories from "./Categories";
 
 const Home = () => {
   const loaderData = useLoaderData();
-  console.log(loaderData);
-
   return (
     <div className="container mx-auto">
       <Helmet>

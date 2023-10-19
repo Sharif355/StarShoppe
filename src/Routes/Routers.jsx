@@ -8,6 +8,7 @@ import Signin from "../SignIn/Signin";
 import SignUp from "../SignUp/SignUp";
 import CategoriesDetail from "../Home/CategoriesDetail";
 import ProductsDetail from "../Home/ProductsDetail";
+import PrivateRoutes from "../Private/PrivateRoutes";
 
 const Routers = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/categories/:brand_name/:id",
-        element: <ProductsDetail></ProductsDetail>,
+        element: (
+          <PrivateRoutes>
+            <ProductsDetail></ProductsDetail>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
@@ -38,7 +43,12 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoutes>
+            {" "}
+            <MyCart></MyCart>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/signIn",
