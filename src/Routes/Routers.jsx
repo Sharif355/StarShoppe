@@ -50,7 +50,12 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProducts></AddProducts>,
+        element: (
+          <PrivateRoutes>
+            {" "}
+            <AddProducts></AddProducts>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/myCart",

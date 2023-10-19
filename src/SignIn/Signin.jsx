@@ -14,7 +14,6 @@ const Signin = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.pass.value;
-    console.log(email, password);
 
     signIn(email, password)
       .then((res) => {
@@ -27,7 +26,6 @@ const Signin = () => {
         navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
-        console.log(error.message);
         Swal.fire({
           icon: "error",
           title: "Oops",

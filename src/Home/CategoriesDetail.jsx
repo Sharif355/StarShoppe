@@ -1,7 +1,7 @@
-import { Carousel } from "@material-tailwind/react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaEdit, FaEye } from "react-icons/fa";
 import Ratings from "../Ratings/Ratings";
+import Sliders from "./Sliders";
 
 const CategoriesDetail = () => {
   const { brand_name } = useParams();
@@ -12,54 +12,7 @@ const CategoriesDetail = () => {
   return (
     <div>
       <div>
-        <Carousel className="rounded-xl ">
-          {findData?.carousel?.map((slider) => (
-            <div key={slider.id} className="flex container mx-auto ">
-              <img
-                id="slide1"
-                src={slider.image1}
-                alt="image 1"
-                className="h-full w-full object-cover relative"
-              />
-              <div className="absolute">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-              <img
-                id="slide2"
-                src={slider.image2}
-                alt="image 1"
-                className="h-full w-full object-cover relative"
-              />
-              <div className="absolute">
-                <a href="#slide1" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-              <img
-                id="slide3"
-                src={slider.image3}
-                alt="image 1"
-                className="h-full w-full object-cover relative"
-              />
-              <div className="absolute">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide1" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-          ))}
-        </Carousel>
+        <Sliders></Sliders>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 container mx-auto my-10">
         {findData?.map((product) => (
