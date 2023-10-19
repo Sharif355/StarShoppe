@@ -1,6 +1,12 @@
-import { Helmet } from "react-helmet-async";
+import { useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddProducts = () => {
+const UpdateProducts = () => {
+  const { id } = useParams();
+  const loadedData = useLoaderData();
+
+  const findData = loadedData?.find((data) => data._id == id);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,8 +27,8 @@ const AddProducts = () => {
       rating,
     };
     console.log(newProducts);
-    fetch("http://localhost:5000/products", {
-      method: "POST",
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -31,18 +37,21 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          alert("Product Added Successfully");
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Products updated Successfully",
+            confirmButtonText: "Ok",
+          });
           form.reset();
         }
       });
   };
 
   return (
-    <div className="container mx-auto">
-      <Helmet>
-        <title>StarShoppe | Add Products</title>
-      </Helmet>
+    <div>
+      <h1>Update your products</h1>
       <div className=" lg:px-80 ">
         <form onSubmit={handleSubmit} className="  px-20 shadow-xl ">
           {/* photo */}
@@ -56,6 +65,7 @@ const AddProducts = () => {
                 placeholder="PhotoURL"
                 className="input input-bordered w-full"
                 name="photo"
+                defaultValue={findData.photo}
               />
             </label>
           </div>
@@ -70,6 +80,7 @@ const AddProducts = () => {
                 placeholder="Name"
                 className="input input-bordered w-full"
                 name="name"
+                defaultValue={findData.name}
               />
             </label>
           </div>
@@ -84,6 +95,7 @@ const AddProducts = () => {
                 placeholder="Brand Name"
                 className="input input-bordered w-full"
                 name="brand"
+                defaultValue={findData.brand_name}
               />
             </label>
           </div>
@@ -98,6 +110,7 @@ const AddProducts = () => {
                 placeholder="Movie,Series,Song"
                 className="input input-bordered w-full"
                 name="type"
+                defaultValue={findData.type}
               />
             </label>
           </div>
@@ -112,6 +125,7 @@ const AddProducts = () => {
                 placeholder="Product Price"
                 className="input input-bordered w-full"
                 name="price"
+                defaultValue={findData.price}
               />
             </label>
           </div>
@@ -126,6 +140,7 @@ const AddProducts = () => {
                 placeholder="Short Description"
                 className="input input-bordered w-full"
                 name="description"
+                defaultValue={findData.description}
               />
             </label>
           </div>
@@ -140,6 +155,7 @@ const AddProducts = () => {
                 placeholder="Rating"
                 className="input input-bordered w-full"
                 name="rating"
+                defaultValue={findData.rating}
               />
             </label>
           </div>
@@ -157,4 +173,4 @@ const AddProducts = () => {
   );
 };
 
-export default AddProducts;
+export default UpdateProducts;

@@ -9,6 +9,7 @@ import SignUp from "../SignUp/SignUp";
 import CategoriesDetail from "../Home/CategoriesDetail";
 import ProductsDetail from "../Home/ProductsDetail";
 import PrivateRoutes from "../Private/PrivateRoutes";
+import UpdateProducts from "../Update/UpdateProducts";
 
 const Routers = createBrowserRouter([
   {
@@ -38,6 +39,16 @@ const Routers = createBrowserRouter([
           fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
+        path: "/updates/:brand_name/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateProducts></UpdateProducts>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
+      },
+      {
         path: "/addProduct",
         element: <AddProducts></AddProducts>,
       },
@@ -45,10 +56,10 @@ const Routers = createBrowserRouter([
         path: "/myCart",
         element: (
           <PrivateRoutes>
-            {" "}
             <MyCart></MyCart>
           </PrivateRoutes>
         ),
+        loader: () => fetch("http://localhost:5000/carts"),
       },
       {
         path: "/signIn",

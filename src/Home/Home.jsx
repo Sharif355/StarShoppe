@@ -10,7 +10,6 @@ const Home = () => {
       <Helmet>
         <title>StarShoppe | Home</title>
       </Helmet>
-      <h1>This is Home.</h1>
       <Banner></Banner>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {loaderData?.map((data) => (
