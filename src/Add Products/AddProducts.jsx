@@ -47,7 +47,10 @@ const AddProducts = () => {
         <title>StarShoppe | Add Products</title>
       </Helmet>
       <div className=" lg:px-80 ">
-        <form onSubmit={handleSubmit} className="  px-20 shadow-xl ">
+        <form
+          onSubmit={handleSubmit}
+          className="  lg:px-20 shadow-xl bg-stone-200 px-2 rounded-lg"
+        >
           {/* photo */}
           <div className="form-control  w-full">
             <label className="label">

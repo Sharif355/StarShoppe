@@ -2,8 +2,14 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { AiFillStar, AiFillDollarCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { RiMovie2Line } from "react-icons/ri";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const ProductsDetail = () => {
+  const { user } = useContext(AuthContext);
+
+  const userId = user.uid;
+
   const { id } = useParams();
   const loadedData = useLoaderData();
 
@@ -16,11 +22,10 @@ const ProductsDetail = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ item }),
+      body: JSON.stringify({ item, userId }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             icon: "success",
@@ -36,7 +41,7 @@ const ProductsDetail = () => {
     <div className="container mx-auto flex justify-center mt-20">
       {showDetails?.map((detail) => (
         <div key={detail._id}>
-          <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+          <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
             <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
               <img src={detail.photo} className=" w-full h-full" />
             </div>

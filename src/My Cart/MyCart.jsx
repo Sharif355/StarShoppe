@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet-async";
 const MyCart = () => {
   const loadedData = useLoaderData();
   const [carts, setCart] = useState(loadedData);
-  console.log(typeof loadedData);
 
   const handleDelete = (_id) => {
     fetch(

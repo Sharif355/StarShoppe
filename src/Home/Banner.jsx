@@ -4,8 +4,8 @@ const Banner = () => {
     <div className="container mx-auto bg-slate-100 px-2">
       <div className="flex flex-col md:flex-row items-center justify-center gap-2">
         <div className=" w-full space-y-3">
-          <h1 className="text-5xl">
-            Unlocking <br /> the <br /> World's Best.
+          <h1 className="text-5xl font-semibold">
+            Unlocking the <br /> World's Best <br /> Entertainment
           </h1>
           <p className="font-normal text-gray-400">
             Your Gateway to Entertainment Excellence. Discover, Enjoy, and

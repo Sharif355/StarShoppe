@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="bg-[url('https://svgshare.com/i/ycx.svg')] bg-no-repeat bg-center bg-cover mt-10  ">
-      <footer className="footer mt-10 text-base-content container mx-auto">
+      <footer className="footer mt-10 text-base-content container mx-auto justify-center">
         <aside>
           <div className="flex items-center">
             <img
