@@ -21,13 +21,18 @@ const Routers = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () =>
+          fetch(
+            " https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/brands"
+          ),
       },
       {
         path: "/categories/:brand_name",
         element: <CategoriesDetail></CategoriesDetail>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.brand_name}`),
+          fetch(
+            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.brand_name}`
+          ),
       },
       {
         path: "/categories/:brand_name/:id",
@@ -37,7 +42,9 @@ const Routers = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/updates/:brand_name/:id",
@@ -47,7 +54,9 @@ const Routers = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/addProduct",
@@ -65,7 +74,10 @@ const Routers = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/carts"),
+        loader: () =>
+          fetch(
+            " https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/carts"
+          ),
       },
       {
         path: "/signIn",

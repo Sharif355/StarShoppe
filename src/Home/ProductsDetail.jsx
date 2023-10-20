@@ -10,7 +10,7 @@ const ProductsDetail = () => {
   const showDetails = loadedData.filter((data) => data._id == id);
 
   const handleCart = (item) => {
-    fetch(`http://localhost:5000/carts`, {
+    fetch(` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/carts`, {
       // use the put method for updating the data
       method: "POST",
       headers: {

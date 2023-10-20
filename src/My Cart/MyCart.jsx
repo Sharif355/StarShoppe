@@ -7,15 +7,19 @@ import { Helmet } from "react-helmet-async";
 const MyCart = () => {
   const loadedData = useLoaderData();
   const [carts, setCart] = useState(loadedData);
+  console.log(typeof loadedData);
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/carts/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(),
-    })
+    fetch(
+      ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/carts/${_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

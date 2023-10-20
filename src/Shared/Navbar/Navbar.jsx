@@ -78,9 +78,11 @@ const Navbar = () => {
           />
           <a className=" text-2xl normal-case font-semibold ml-2">StarShoppe</a>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
+
         <div className="navbar-end hidden md:flex">
           {user ? (
             <div className="flex items-center gap-2">

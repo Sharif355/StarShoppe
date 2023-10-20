@@ -27,13 +27,16 @@ const UpdateProducts = () => {
       rating,
     };
     console.log(newProducts);
-    fetch(`http://localhost:5000/products/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProducts),
-    })
+    fetch(
+      ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProducts),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

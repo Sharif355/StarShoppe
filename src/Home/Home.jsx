@@ -7,6 +7,7 @@ import ComingSoon from "./ComingSoon";
 
 const Home = () => {
   const loaderData = useLoaderData();
+
   return (
     <div className="container mx-auto">
       <Helmet>
@@ -17,8 +18,8 @@ const Home = () => {
         Our Trusted Brand&apos;s
       </h1>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {loaderData?.map((data) => (
-          <Categories key={data._id} data={data}></Categories>
+        {Object.keys(loaderData).map((key) => (
+          <Categories key={key} data={loaderData[key]}></Categories>
         ))}
       </div>
       <ComingSoon></ComingSoon>
