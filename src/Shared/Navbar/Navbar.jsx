@@ -5,17 +5,16 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
 
   const navLinks = (
     <>
-      <li>
+      <li className="font-medium text-lg ">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="font-medium text-lg ">
         <NavLink to="/addProduct">Add Product</NavLink>
       </li>
-      <li>
+      <li className="font-medium text-lg ">
         <NavLink to="/myCart">My Cart</NavLink>
       </li>
     </>
@@ -77,9 +76,7 @@ const Navbar = () => {
             src="https://i.ibb.co/NyFtB8H/logo.png"
             alt=""
           />
-          <a className=" text-2xl normal-case font-semibold ml-2">
-            StarShoppe{" "}
-          </a>
+          <a className=" text-2xl normal-case font-semibold ml-2">StarShoppe</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -94,13 +91,16 @@ const Navbar = () => {
                 alt=""
               />{" "}
               <p>{user.displayName}</p>
-              <button onClick={handleLogOut} className="btn btn-accent">
+              <button
+                onClick={handleLogOut}
+                className="btn bg-black text-white"
+              >
                 Log Out
               </button>
             </div>
           ) : (
             <Link to="/signIn">
-              <button className="btn btn-accent">Log in</button>
+              <button className="btn bg-black text-white">Log in</button>
             </Link>
           )}
         </div>

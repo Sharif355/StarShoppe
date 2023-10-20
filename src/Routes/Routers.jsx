@@ -10,6 +10,7 @@ import CategoriesDetail from "../Home/CategoriesDetail";
 import ProductsDetail from "../Home/ProductsDetail";
 import PrivateRoutes from "../Private/PrivateRoutes";
 import UpdateProducts from "../Update/UpdateProducts";
+import ComingSoon from "../Home/ComingSoon";
 
 const Routers = createBrowserRouter([
   {

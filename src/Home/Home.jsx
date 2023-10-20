@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import { useLoaderData } from "react-router-dom";
 import Categories from "./Categories";
-import WhyUs from "./WhyUs";
 import Review from "./Review";
+import ComingSoon from "./ComingSoon";
 
 const Home = () => {
   const loaderData = useLoaderData();
@@ -21,7 +21,7 @@ const Home = () => {
           <Categories key={data._id} data={data}></Categories>
         ))}
       </div>
-      <WhyUs></WhyUs>
+      <ComingSoon></ComingSoon>
       <Review></Review>
     </div>
   );

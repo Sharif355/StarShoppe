@@ -5,7 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: { roboto: ["Roboto Slab", "sans-serif"] }
+    },
   },
   plugins: [require("daisyui"), require('flowbite/plugin')],
 }
