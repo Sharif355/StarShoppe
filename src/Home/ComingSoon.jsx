@@ -6,7 +6,7 @@ const ComingSoon = () => {
   const [loadedData, setLoadedData] = useState([]);
 
   useEffect(() => {
-    fetch(" https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/coming")
+    fetch(" https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/coming")
       .then((res) => res.json())
       .then((data) => setLoadedData(data));
   }, []);

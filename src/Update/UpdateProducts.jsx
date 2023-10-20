@@ -28,7 +28,7 @@ const UpdateProducts = () => {
     };
     console.log(newProducts);
     fetch(
-      ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${id}`,
+      ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products/${id}`,
       {
         method: "PUT",
         headers: {
@@ -54,7 +54,6 @@ const UpdateProducts = () => {
 
   return (
     <div>
-      <h1>Update your products</h1>
       <div className=" lg:px-80 ">
         <form onSubmit={handleSubmit} className="  px-20 shadow-xl ">
           {/* photo */}

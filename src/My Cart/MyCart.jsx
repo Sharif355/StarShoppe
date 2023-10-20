@@ -11,7 +11,7 @@ const MyCart = () => {
 
   const handleDelete = (_id) => {
     fetch(
-      ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/carts/${_id}`,
+      ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/carts/${_id}`,
       {
         method: "DELETE",
         headers: {

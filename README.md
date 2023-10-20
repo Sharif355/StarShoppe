@@ -2,7 +2,7 @@
 
 - This is a simple website for a shop that sells different types of products(In case of this site we added different brands like netflix,amazon to sell their products). The website has a home page, a products page, a product details page, a cart page.
 
-## Live Link: [GameHex](https://65240da1ec6a7c0587350943--dapper-squirrel-35f717.netlify.app/)
+## Live Link: [GameHex](https://brand-shop-b-8-p-hero.web.app/)
 
 ## Features
 

@@ -22,7 +22,7 @@ const AddProducts = () => {
     };
     console.log(newProducts);
     fetch(
-      " https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products",
+      " https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products",
       {
         method: "POST",
         headers: {

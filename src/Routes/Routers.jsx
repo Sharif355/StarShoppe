@@ -23,7 +23,7 @@ const Routers = createBrowserRouter([
         element: <Home></Home>,
         loader: () =>
           fetch(
-            " https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/brands"
+            " https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/brands"
           ),
       },
       {
@@ -31,7 +31,7 @@ const Routers = createBrowserRouter([
         element: <CategoriesDetail></CategoriesDetail>,
         loader: ({ params }) =>
           fetch(
-            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.brand_name}`
+            ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products/${params.brand_name}`
           ),
       },
       {
@@ -43,7 +43,7 @@ const Routers = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.id}`
+            ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -55,7 +55,7 @@ const Routers = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            ` https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/products/${params.id}`
+            ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -76,7 +76,7 @@ const Routers = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            " https://brand-shop-server-fgvb56lt0-sharif355.vercel.app/carts"
+            " https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/carts"
           ),
       },
       {
