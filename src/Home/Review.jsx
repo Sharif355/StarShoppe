@@ -3,14 +3,14 @@ import { BsStarHalf } from "react-icons/bs";
 
 const Review = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto ">
       <h1 className="text-center text-3xl my-10 font-bold">
         Testimonials from our users
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center lg:flex-row gap-10">
         {/* first review */}
-        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-lg p-3">
-          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
+        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border  shadow-lg p-3 ">
+          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden  bg-transparent shadow-none rounded-xl bg-clip-border">
             <img
               src="https://i.ibb.co/x3vTzpr/blog2.jpg"
               alt="tania andrew"
@@ -18,7 +18,7 @@ const Review = () => {
             />
             <div className="flex w-full flex-col gap-0.5">
               <div className="flex items-center justify-between">
-                <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                <h5 className="block font-sans text-xl  font-semibold leading-snug tracking-normal text-blue-gray-900 ">
                   Andrew Mathews
                 </h5>
                 <div className="flex items-center gap-0 5">
@@ -43,8 +43,8 @@ const Review = () => {
           </div>
         </div>
         {/* Second review */}
-        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-lg px-3 py-7">
-          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
+        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border  shadow-lg px-3 py-7">
+          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden  bg-transparent shadow-none rounded-xl bg-clip-border">
             <img
               src="https://i.ibb.co/vwSzywr/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg"
               alt="tania andrew"
@@ -78,8 +78,8 @@ const Review = () => {
           </div>
         </div>
         {/* Third review */}
-        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-lg p-3">
-          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
+        <div className="relative flex w-full  flex-col rounded-xl bg-transparent bg-clip-border  shadow-lg p-3">
+          <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden  bg-transparent shadow-none rounded-xl bg-clip-border">
             <img
               src="https://i.ibb.co/09F4T62/sigmund-a19-OVaa2rz-A-unsplash.jpg"
               alt="tania andrew"

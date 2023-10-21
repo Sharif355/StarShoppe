@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
     <div className="bg-[url('https://svgshare.com/i/ycx.svg')] bg-no-repeat bg-center bg-cover mt-10  ">
-      <footer className="footer mt-10 text-base-content container mx-auto justify-center">
+      <footer className="footer mt-10 text-base-content container mx-auto justify-center lg:justify-between">
         <aside>
           <div className="flex items-center">
             <img
               className=" w-14 rounded-full"
-              src="https://i.ibb.co/NyFtB8H/logo.png"
+              src="https://i.ibb.co/mTJ6m68/film-162028-1920.png"
               alt=""
             />
             <a className=" text-2xl normal-case font-semibold ml-2">

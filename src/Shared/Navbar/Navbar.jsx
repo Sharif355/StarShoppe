@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import DarkMode from "../../Darkmode/Darkmode";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,13 +10,49 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li className="font-medium text-lg ">
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              color: isPending ? "red" : "",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              backgroundColor: isActive ? "rgb(100, 149, 237)" : "",
+            };
+          }}
+        >
+          Home
+        </NavLink>
       </li>
       <li className="font-medium text-lg ">
-        <NavLink to="/addProduct">Add Product</NavLink>
+        <NavLink
+          to="/addProduct"
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              color: isPending ? "red" : "",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              backgroundColor: isActive ? "rgb(100, 149, 237)" : "",
+            };
+          }}
+        >
+          Add Product
+        </NavLink>
       </li>
       <li className="font-medium text-lg ">
-        <NavLink to="/myCart">My Cart</NavLink>
+        <NavLink
+          to="/myCart"
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              color: isPending ? "red" : "",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              backgroundColor: isActive ? "rgb(100, 149, 237)" : "",
+            };
+          }}
+        >
+          My Cart
+        </NavLink>
       </li>
     </>
   );
@@ -66,6 +103,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
+
               <Link to="/signIn">
                 <button className="ml-3">Log in</button>
               </Link>
@@ -73,36 +111,42 @@ const Navbar = () => {
           </div>
           <img
             className=" w-14 rounded-full"
-            src="https://i.ibb.co/NyFtB8H/logo.png"
+            src="https://i.ibb.co/mTJ6m68/film-162028-1920.png"
             alt=""
           />
           <a className=" text-2xl normal-case font-semibold ml-2">StarShoppe</a>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <div className="navbar-center hidden lg:flex ">
+          <ul className="menu menu-horizontal px-1 ">{navLinks}</ul>
+          <DarkMode></DarkMode>
         </div>
 
-        <div className="navbar-end hidden md:flex">
+        <div className="navbar-end ">
+          <div className=" flex lg:hidden">
+            <DarkMode></DarkMode>
+          </div>
           {user ? (
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               {" "}
               <img
                 className="w-10 rounded-full"
                 src={user.photoURL}
                 alt=""
               />{" "}
-              <p>{user.displayName}</p>
+              <p className="text-white">{user.displayName}</p>
               <button
                 onClick={handleLogOut}
-                className="btn bg-black text-white"
+                className="btn bg-[#6495ED] text-white"
               >
                 Log Out
               </button>
             </div>
           ) : (
             <Link to="/signIn">
-              <button className="btn bg-black text-white">Log in</button>
+              <button className="btn bg-[#6495ED] text-white hidden md:flex">
+                Log in
+              </button>
             </Link>
           )}
         </div>

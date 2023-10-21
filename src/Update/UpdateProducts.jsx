@@ -28,7 +28,7 @@ const UpdateProducts = () => {
     };
     console.log(newProducts);
     fetch(
-      ` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/products/${id}`,
+      `    https://brand-shop-server-eplzn76ld-sharif355.vercel.app/products/${id}`,
       {
         method: "PUT",
         headers: {

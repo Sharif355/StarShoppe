@@ -16,14 +16,17 @@ const ProductsDetail = () => {
   const showDetails = loadedData.filter((data) => data._id == id);
 
   const handleCart = (item) => {
-    fetch(` https://brand-shop-server-qdi83ct9p-sharif355.vercel.app/carts`, {
-      // use the put method for updating the data
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ item, userId }),
-    })
+    fetch(
+      `    https://brand-shop-server-eplzn76ld-sharif355.vercel.app/carts`,
+      {
+        // use the put method for updating the data
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ item, userId }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -38,10 +41,10 @@ const ProductsDetail = () => {
   };
 
   return (
-    <div className="container mx-auto flex justify-center mt-20">
+    <div className="container mx-auto flex justify-center mt-16">
       {showDetails?.map((detail) => (
         <div key={detail._id}>
-          <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+          <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border lg:w-96">
             <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
               <img src={detail.photo} className=" w-full h-full" />
             </div>
