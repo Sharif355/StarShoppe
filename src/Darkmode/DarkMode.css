@@ -80,17 +80,3 @@ input:checked + .slider {
 .slider.round:before {
   border-radius: 50%;
 }
-@media (max-width: 767px) {
-  .toggle-theme-wrapper {
-    font-size: 10px;
-  }
-  .toggle-theme {
-    height: 20px;
-    width: 40px;
-  }
-
-  .slider:before {
-    height: 16px;
-    width: 16px;
-  }
-}

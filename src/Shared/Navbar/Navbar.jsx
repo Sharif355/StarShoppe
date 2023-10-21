@@ -117,17 +117,17 @@ const Navbar = () => {
           <a className=" text-2xl normal-case font-semibold ml-2">StarShoppe</a>
         </div>
 
-        <div className="navbar-center hidden lg:flex ">
-          <ul className="menu menu-horizontal px-1 ">{navLinks}</ul>
+        <div className="navbar-center ">
+          <ul className="menu menu-horizontal px-1 hidden lg:flex">
+            {navLinks}
+          </ul>
+        </div>
+        <div className="ml-16 md:ml-0">
           <DarkMode></DarkMode>
         </div>
-
-        <div className="navbar-end ">
-          <div className=" flex lg:hidden">
-            <DarkMode></DarkMode>
-          </div>
+        <div className="navbar-end hidden md:flex">
           {user ? (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-2">
               {" "}
               <img
                 className="w-10 rounded-full"
@@ -144,9 +144,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/signIn">
-              <button className="btn bg-[#6495ED] text-white hidden md:flex">
-                Log in
-              </button>
+              <button className="btn bg-[#6495ED] text-white">Log in</button>
             </Link>
           )}
         </div>
